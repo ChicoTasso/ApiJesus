@@ -1,20 +1,24 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import React from 'react';
+import { FlatList, SafeAreaView, StyleSheet } from 'react-native';
+import Perfil from "./components/Perfil";
+import { Usuarios } from "./moks/Usuarios";
 
 export default function App() {
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+    <SafeAreaView style={styles.container}>
+      <FlatList
+        data={Usuarios}
+        renderItem={({ item }) => (
+          <Perfil user={item} /> // Certifique-se de que `Perfil` aceita o objeto completo
+        )}
+        keyExtractor={item => item.id.toString()} // Convertendo id para string
+      />
+    </SafeAreaView>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
   },
 });
