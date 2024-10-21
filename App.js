@@ -8,12 +8,15 @@ import Postagem from './components/Publicacao';
 export default function App() {
   return (
     <SafeAreaView style={styles.container}>
-      <FlatList
-        data={Postagens}
-        renderItem={({ item }) => <Postagem post={item} />}
-        keyExtractor={item => item.id.toString()} 
-      />
-    </SafeAreaView>
+    <FlatList
+      data={Postagens}
+      renderItem={({ item }) => {
+        const user = Usuarios.find(usuario => usuario.id === item.userId); 
+        return <Postagem post={item} user={user} />;
+      }}
+      keyExtractor={item => item.id.toString()} 
+    />
+  </SafeAreaView>
   );
 }
 
