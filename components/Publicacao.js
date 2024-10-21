@@ -4,6 +4,7 @@ import { Text, View, StyleSheet, TouchableOpacity, Image } from 'react-native';
 export default function Postagem({ post, user }) {
   return (
     <View style={styles.container}>
+      <TouchableOpacity style={styles.button}>
       <View style={styles.userInfo}>
         <Image
           style={styles.avatar}
@@ -13,8 +14,8 @@ export default function Postagem({ post, user }) {
       </View>
       <Text style={styles.title}>{post.title}</Text>
       <Text style={styles.body}>{post.body}</Text>
-      <TouchableOpacity style={styles.button}>
-        <Text style={styles.buttonText}>Leia mais</Text>
+      
+
       </TouchableOpacity>
     </View>
   );
@@ -22,18 +23,11 @@ export default function Postagem({ post, user }) {
 
 const styles = StyleSheet.create({
   container: {
-    padding: 15,
-    marginVertical: 10,
-    backgroundColor: '#fff',
-    borderRadius: 8,
-    shadowColor: '#000',
-    shadowOffset: {
-      width: 0,
-      height: 2,
-    },
-    shadowOpacity: 0.3,
-    shadowRadius: 4,
-    elevation: 2,
+    backgroundColor: '#007BFF',
+    paddingVertical: 10,
+    paddingHorizontal: 15,
+    borderRadius: 5,
+    alignItems: 'center',
   },
   userInfo: {
     flexDirection: 'row',
@@ -62,11 +56,18 @@ const styles = StyleSheet.create({
     marginBottom: 10,
   },
   button: {
-    backgroundColor: '#007BFF',
-    paddingVertical: 10,
-    paddingHorizontal: 15,
-    borderRadius: 5,
-    alignItems: 'center',
+    padding: 15,
+    marginVertical: 10,
+    backgroundColor: '#fff',
+    borderRadius: 8,
+    shadowColor: '#000',
+    shadowOffset: {
+      width: 0,
+      height: 2,
+    },
+    shadowOpacity: 0.3,
+    shadowRadius: 4,
+    elevation: 2,
   },
   buttonText: {
     color: '#fff',
