@@ -1,10 +1,11 @@
 import React from 'react';
-import { Text, View, StyleSheet, TouchableOpacity } from 'react-native';
+import { Text, View, StyleSheet, TouchableOpacity, Image} from 'react-native';
 
 export default function Postagem({ post, user }) {
   return (
     <View style={styles.container}>
-      <Text style={styles.username}>{user.name}</Text> 
+      
+      <Text style={styles.username}><Image style={{width: 50, height: 50, borderRadius: '50%',}} source={{uri: 'https://i.pinimg.com/control/564x/c4/60/44/c4604431e803b2a19abab09d1e57fea7.jpg'}}/>  {user.name}  @{user.username}</Text> 
       <Text style={styles.title}>{post.title}</Text>
       <Text style={styles.body}>{post.body}</Text>
       <TouchableOpacity style={styles.button}>
@@ -30,10 +31,11 @@ const styles = StyleSheet.create({
     elevation: 2,
   },
   username: {
-    fontSize: 14,
+    fontSize: 22,
     fontWeight: 'bold',
     color: '#555', 
     marginBottom: 5,
+    justifyContent: 'center',
   },
   title: {
     fontSize: 18,
