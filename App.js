@@ -9,9 +9,9 @@ export default function App() {
       <FlatList
         data={Usuarios}
         renderItem={({ item }) => (
-          <Perfil user={item} /> // Certifique-se de que `Perfil` aceita o objeto completo
+          <Perfil user={item} /> 
         )}
-        keyExtractor={item => item.id.toString()} // Convertendo id para string
+        keyExtractor={item => item.id.toString()} 
       />
     </SafeAreaView>
   );
