@@ -2,9 +2,16 @@ import React from 'react';
 import { Text, View, StyleSheet, TouchableOpacity, Image } from 'react-native';
 
 export default function Postagem({ post, user }) {
+    const handlePress = () => {
+        navigation.navigate('PostDetail', { post, user }); 
+      };
+
+
+
+
   return (
     <View style={styles.container}>
-      <TouchableOpacity style={styles.button}>
+      <TouchableOpacity style={styles.button} onPress={handlePress}>
       <View style={styles.userInfo}>
         <Image
           style={styles.avatar}
