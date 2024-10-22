@@ -2,10 +2,10 @@ import React from 'react';
 import { FlatList, SafeAreaView, StyleSheet } from 'react-native';
 import { Usuarios } from "../moks/Usuarios";
 import { Postagens } from '../moks/Postagens';
-import Postagem from "../components/Publicacao"
+import Postagem from '../components/Publicacao';
 
 
-export default function HomeScreen({ navigation }) { // Recebe o 'navigation'
+export default function HomeScreen({ navigation }) { 
   return (
     <SafeAreaView style={styles.container}>
       <FlatList
@@ -16,7 +16,7 @@ export default function HomeScreen({ navigation }) { // Recebe o 'navigation'
             <Postagem 
               post={item} 
               user={user} 
-              navigation={navigation} // Passa o objeto de navegação
+              navigation={navigation} 
             />
           );
         }}
