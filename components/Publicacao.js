@@ -33,7 +33,6 @@ const styles = StyleSheet.create({
     backgroundColor: '#007BFF',
     paddingVertical: 10,
     paddingHorizontal: 15,
-    borderRadius: 5,
     alignItems: 'center',
   },
   userInfo: {
