@@ -12,8 +12,9 @@ export default function App() {
     <NavigationContainer>
       <Stack.Navigator initialRouteName="Posts">
         <Stack.Screen name="Posts" component={HomeScreen} />
-        <Stack.Screen name="Postagem" component={PostDetail} />
+        <Stack.Screen name="PostDetail" component={PostDetail} />
       </Stack.Navigator>
     </NavigationContainer>
   );
 }
+ 

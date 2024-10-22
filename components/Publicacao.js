@@ -1,9 +1,9 @@
 import React from 'react';
 import { Text, View, StyleSheet, TouchableOpacity, Image } from 'react-native';
 
-export default function Postagem({ post, user, navigation }) { // Recebe navigation como prop
+export default function Postagem({ post, user, navigation }) { 
   const handlePress = () => {
-    navigation.navigate('PostDetail', { post, user }); // Navega para PostDetail
+    navigation.navigate('PostDetail', { post, user }); 
   };
 
   return (
