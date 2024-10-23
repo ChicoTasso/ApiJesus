@@ -1,12 +1,9 @@
-import React  from 'react';
-import { Text, View, StyleSheet, TouchableOpacity, Image } from 'react-native';
+import React from 'react';
+import { Text, View, StyleSheet, TouchableOpacity } from 'react-native';
 
-export default function Postagem({ post, navigation }) { 
-
-
-
+export default function Postagem({ post, navigation }) {
   const handlePress = () => {
-    navigation.navigate('PostDetail', { post }); 
+    navigation.navigate('PostDetail', { postId: post.id }); 
   };
 
   return (
@@ -21,39 +18,13 @@ export default function Postagem({ post, navigation }) {
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: '#007BFF',
     paddingVertical: 10,
     paddingHorizontal: 15,
     alignItems: 'center',
-  },
-  userInfo: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    marginBottom: 10,
-  },
-  avatar: {
-    width: 50,
-    height: 50,
-    borderRadius: 25,
-    marginRight: 10,
-  },
-  username: {
-    fontSize: 22,
-    fontWeight: 'bold',
-    color: '#555',
-  },
-  title: {
-    fontSize: 18,
-    fontWeight: 'bold',
-    marginBottom: 5,
-  },
-  body: {
-    fontSize: 16,
-    color: '#333',
-    marginBottom: 10,
+    
   },
   button: {
-    width: 443,
+    width: '100%', 
     padding: 15,
     marginVertical: 10,
     backgroundColor: '#fff',
@@ -66,5 +37,15 @@ const styles = StyleSheet.create({
     shadowOpacity: 0.3,
     shadowRadius: 4,
     elevation: 2,
+  },
+  title: {
+    fontSize: 18,
+    fontWeight: 'bold',
+    marginBottom: 5,
+  },
+  body: {
+    fontSize: 16,
+    color: '#333',
+    marginBottom: 10,
   },
 });
