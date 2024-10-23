@@ -5,18 +5,28 @@ export default function PostDetail({ route }) {
   const { postId } = route.params;
   const [post, setPost] = useState(null);
   const [loading, setLoading] = useState(true);
+  const [comments, setComments] = useState([]); // Corrigido para 'comments'
 
   useEffect(() => {
-    fetch(`https://jsonplaceholder.typicode.com/posts/${postId}`)
-      .then(response => response.json())
-      .then(data => {
-        setPost(data);
+    const fetchPostAndComments = async () => {
+      try {
+        // Busca o post
+        const postResponse = await fetch(`https://jsonplaceholder.typicode.com/posts/${postId}`);
+        const postData = await postResponse.json();
+        setPost(postData);
+
+        // Busca os comentários
+        const commentsResponse = await fetch(`https://jsonplaceholder.typicode.com/posts/${postId}/comments`);
+        const commentsData = await commentsResponse.json();
+        setComments(commentsData);
+      } catch (error) {
+        console.error('Erro ao buscar post ou comentários:', error);
+      } finally {
         setLoading(false);
-      })
-      .catch(error => {
-        console.error('Erro ao buscar post:', error);
-        setLoading(false);
-      });
+      }
+    };
+
+    fetchPostAndComments();
   }, [postId]);
 
   if (loading) {
@@ -38,6 +48,12 @@ export default function PostDetail({ route }) {
         <Text style={styles.body}>{post.body}</Text>
       </View>
       <Text style={styles.commentsTitle}>Comentários:</Text>
+      {comments.map(comment => (
+        <View key={comment.id} style={styles.commentContainer}>
+          <Text style={styles.commentName}>{comment.name}</Text>
+          <Text style={styles.commentBody}>{comment.body}</Text>
+        </View>
+      ))}
     </ScrollView>
   );
 }
@@ -46,7 +62,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     padding: 20,
-    backgroundColor: '#007BFF',
+    backgroundColor: '#f0f8ff', 
   },
   title: {
     fontSize: 24,
@@ -87,5 +103,19 @@ const styles = StyleSheet.create({
     fontSize: 24,
     fontWeight: 'bold',
     marginTop: 20,
+    color: '#34495e',
+  },
+  commentContainer: {
+    padding: 10,
+    marginVertical: 5,
+    backgroundColor: '#e0f7fa',
+    borderRadius: 8,
+  },
+  commentName: {
+    fontWeight: 'bold',
+    color: '#00796b',
+  },
+  commentBody: {
+    color: '#555',
   },
 });
