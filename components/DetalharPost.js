@@ -5,17 +5,17 @@ export default function PostDetail({ route }) {
   const { postId } = route.params;
   const [post, setPost] = useState(null);
   const [loading, setLoading] = useState(true);
-  const [comments, setComments] = useState([]); // Corrigido para 'comments'
+  const [comments, setComments] = useState([]);
 
   useEffect(() => {
     const fetchPostAndComments = async () => {
       try {
-        // Busca o post
+        
         const postResponse = await fetch(`https://jsonplaceholder.typicode.com/posts/${postId}`);
         const postData = await postResponse.json();
         setPost(postData);
 
-        // Busca os comentários
+        
         const commentsResponse = await fetch(`https://jsonplaceholder.typicode.com/posts/${postId}/comments`);
         const commentsData = await commentsResponse.json();
         setComments(commentsData);
@@ -30,7 +30,7 @@ export default function PostDetail({ route }) {
   }, [postId]);
 
   if (loading) {
-    return <ActivityIndicator size="large" color="#0000ff" />; // Exibe um indicador de carregamento
+    return <ActivityIndicator size="large" color="#0000ff" />; 
   }
 
   if (!post) {
