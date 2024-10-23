@@ -1,5 +1,6 @@
 import React from 'react';
 import { View, Text, StyleSheet } from 'react-native';
+import { MaterialCommunityIcons } from '@expo/vector-icons';
 
 export default function Perfil({ user }) {
   if (!user) {
@@ -10,23 +11,20 @@ export default function Perfil({ user }) {
     <View style={styles.container}>
       <Text style={styles.title}>{user.name}</Text>
       <Text style={styles.username}>@{user.username}</Text>
-      <Text style={styles.email}>{user.email}</Text>
       
-      <View style={styles.addressContainer}>
-        <Text style={styles.subTitle}>Endereço:</Text>
-        <Text>{user.address.suite}, {user.address.street}</Text>
-        <Text>{user.address.city}, {user.address.zipcode}</Text>
-        <Text>Latitude: {user.address.geo.lat}, Longitude: {user.address.geo.lng}</Text>
+      <View style={styles.infoContainer}>
+        <MaterialCommunityIcons name="email" size={20} color="#555" />
+        <Text style={styles.email}>{user.email}</Text>
       </View>
-      
-      <Text style={styles.phone}>Telefone: {user.phone}</Text>
-      <Text style={styles.website}>Website: {user.website}</Text>
-      
-      <View style={styles.companyContainer}>
-        <Text style={styles.subTitle}>Empresa:</Text>
-        <Text>{user.company.name}</Text>
-        <Text>{user.company.catchPhrase}</Text>
-        <Text>{user.company.bs}</Text>
+
+      <View style={styles.infoContainer}>
+        <MaterialCommunityIcons name="phone" size={20} color="#555" />
+        <Text style={styles.phone}>Telefone: {user.phone}</Text>
+      </View>
+
+      <View style={styles.infoContainer}>
+        <MaterialCommunityIcons name="web" size={20} color="#555" />
+        <Text style={styles.website}>Website: {user.website}</Text>
       </View>
     </View>
   );
@@ -35,48 +33,47 @@ export default function Perfil({ user }) {
 const styles = StyleSheet.create({
   container: {
     padding: 20,
-    backgroundColor: '#fff',
-    borderRadius: 10,
+    backgroundColor: '#f8f8f8',
+    borderRadius: 12,
     shadowColor: '#000',
+    marginVertical: 10,
     shadowOffset: {
       width: 0,
-      height: 1,
+      height: 2,
     },
     shadowOpacity: 0.2,
-    shadowRadius: 1.41,
-    elevation: 2,
+    shadowRadius: 3.84,
+    elevation: 5,
   },
   title: {
-    fontSize: 24,
+    fontSize: 26,
     fontWeight: 'bold',
+    color: '#333',
   },
   username: {
-    fontSize: 18,
-    color: '#555',
+    fontSize: 20,
+    color: '#777',
+    marginBottom: 10,
   },
   email: {
     fontSize: 16,
     color: '#555',
-  },
-  addressContainer: {
-    marginVertical: 10,
-  },
-  subTitle: {
-    fontSize: 18,
-    fontWeight: 'bold',
-    marginTop: 10,
+    marginLeft: 10,
   },
   phone: {
     fontSize: 16,
-    marginTop: 10,
+    color: '#555',
+    marginLeft: 10,
   },
   website: {
     fontSize: 16,
-    marginTop: 10,
-    color: 'blue',
+    color: '#555',
+    marginLeft: 10,
   },
-  companyContainer: {
-    marginTop: 10,
+  infoContainer: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    marginVertical: 5,
   },
   error: {
     color: 'red',
