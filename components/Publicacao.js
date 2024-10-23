@@ -1,21 +1,17 @@
-import React from 'react';
+import React  from 'react';
 import { Text, View, StyleSheet, TouchableOpacity, Image } from 'react-native';
 
-export default function Postagem({ post, user, navigation }) { 
+export default function Postagem({ post, navigation }) { 
+
+
+
   const handlePress = () => {
-    navigation.navigate('PostDetail', { post, user }); 
+    navigation.navigate('PostDetail', { post }); 
   };
 
   return (
     <View style={styles.container}>
       <TouchableOpacity style={styles.button} onPress={handlePress}>
-        <View style={styles.userInfo}>
-          <Image
-            style={styles.avatar}
-            source={{ uri: 'https://i.pinimg.com/control/564x/c4/60/44/c4604431e803b2a19abab09d1e57fea7.jpg' }}
-          />
-          <Text style={styles.username}>{user.name} @{user.username}</Text>
-        </View>
         <Text style={styles.title}>{post.title}</Text>
         <Text style={styles.body}>{post.body}</Text>
       </TouchableOpacity>
