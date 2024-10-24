@@ -7,12 +7,19 @@ export default function Postagem({ post, navigation }) {
     navigation.navigate('PostDetail', { postId: post.id }); 
   };
 
+
+  const atualizarPost = () => {
+    navigation.navigate('UpdatePost', { postId: post.id })
+  }
+
+
+
   return (
     <View style={styles.container}>
       <TouchableOpacity style={styles.button} onPress={handlePress}>
         <Text style={styles.title}>{post.title}</Text>
         <Text style={styles.body}>{post.body}</Text>
-        <TouchableOpacity><FontAwesome5 name="edit" size={24} color="#007BFF" /></TouchableOpacity>
+        <TouchableOpacity onPress={atualizarPost} ><FontAwesome5 name="edit" size={24} color="#007BFF" /></TouchableOpacity>
       </TouchableOpacity>
       
     </View>
