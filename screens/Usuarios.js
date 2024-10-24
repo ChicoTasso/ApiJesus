@@ -8,8 +8,8 @@ export default function Usuarios() {
     <SafeAreaView style={styles.container}>
       <FlatList
         data={usuariosData}
-        renderItem={({ item }) => <Perfil user={item} />} // Passando o objeto do usuário
-        keyExtractor={item => item.id.toString()} // Convertendo o ID para string
+        renderItem={({ item }) => <Perfil user={item} />}
+        keyExtractor={item => item.id.toString()} 
       />
     </SafeAreaView>
   );

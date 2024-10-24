@@ -7,6 +7,7 @@ import MyTabs from './components/MyTabs';
 import CriarPost from './screens/NewPost';
 import Usuarios from './screens/Usuarios'
 import MeusAlbuns from './screens/Galerias';
+import PerfilDoUsuario from './screens/ExibirPerfil';
 
 
 const Stack = createNativeStackNavigator();
@@ -20,6 +21,7 @@ export default function App() {
         <Stack.Screen name="New Post" component={CriarPost}  />
         <Stack.Screen name="Perfis" component={Usuarios}  />
         <Stack.Screen name="Albuns" component={MeusAlbuns}  />
+        <Stack.Screen name="PerfilDoUsuario" component={PerfilDoUsuario}  />
       </Stack.Navigator>
     </NavigationContainer>
   );

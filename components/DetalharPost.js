@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
-import { View, Text, StyleSheet, ScrollView, ActivityIndicator } from 'react-native';
+import { View, Text, StyleSheet, ScrollView, ActivityIndicator, Button } from 'react-native';
+import { useNavigation } from '@react-navigation/native'; // Importação do hook de navegação
 
 export default function PostDetail({ route }) {
   const { postId } = route.params;
@@ -7,15 +8,21 @@ export default function PostDetail({ route }) {
   const [loading, setLoading] = useState(true);
   const [comments, setComments] = useState([]);
 
+  const navigation = useNavigation();
+
+  const handlePress = () => {
+    if (post) {
+      navigation.navigate('PerfilDoUsuario', { userId: post.userId });
+    }
+  };
+
   useEffect(() => {
     const fetchPostAndComments = async () => {
       try {
-        
         const postResponse = await fetch(`https://jsonplaceholder.typicode.com/posts/${postId}`);
         const postData = await postResponse.json();
         setPost(postData);
 
-        
         const commentsResponse = await fetch(`https://jsonplaceholder.typicode.com/posts/${postId}/comments`);
         const commentsData = await commentsResponse.json();
         setComments(commentsData);
@@ -30,7 +37,7 @@ export default function PostDetail({ route }) {
   }, [postId]);
 
   if (loading) {
-    return <ActivityIndicator size="large" color="#0000ff" />; 
+    return <ActivityIndicator size="large" color="#0000ff" />;
   }
 
   if (!post) {
@@ -46,7 +53,15 @@ export default function PostDetail({ route }) {
       <View style={styles.postContainer}>
         <Text style={styles.title}>{post.title}</Text>
         <Text style={styles.body}>{post.body}</Text>
+
+
+        <Button
+          style={styles.ButtonUser}
+          title="Ver Perfil do Autor"
+          onPress={handlePress}
+        />
       </View>
+
       <Text style={styles.commentsTitle}>Comentários:</Text>
       {comments.map(comment => (
         <View key={comment.id} style={styles.commentContainer}>
@@ -62,7 +77,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     padding: 20,
-    backgroundColor: '#007BFF', 
+    backgroundColor: '#007BFF',
   },
   title: {
     fontSize: 24,
@@ -118,4 +133,7 @@ const styles = StyleSheet.create({
   commentBody: {
     color: '#555',
   },
+  ButtonUser:{
+    marginVertical: 5,
+  }
 });
