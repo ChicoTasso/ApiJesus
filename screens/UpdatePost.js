@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { View, TextInput, Button, StyleSheet, Alert, Text } from 'react-native';
 import { useNavigation } from '@react-navigation/native'; 
 
@@ -8,9 +8,22 @@ export default function UpdatePost({ navigation, route }) {
   const { postId } = route.params;
 
 
-  const RecuperarPost = () => {
-
-  }
+ useEffect( ()=> {
+    const recuperarDados = async () =>  {
+      try {
+        setLoading(true);
+        const batata = await fetch(`https://jsonplaceholder.typicode.com/posts/${postId}`)
+        const batataDados = await batata.json();
+        setTitulo(batataDados.title);
+        setTexto(batataDados.body);
+      } catch (error) {
+        console.error('Erro ao buscar post.', error)
+      } finally {
+        setLoading(false);
+      }
+    }
+    recuperarDados();
+  }, [postId]); 
 
 
 
