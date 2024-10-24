@@ -1,5 +1,6 @@
 import React from 'react';
 import { Text, View, StyleSheet, TouchableOpacity } from 'react-native';
+import FontAwesome5 from '@expo/vector-icons/FontAwesome5';
 
 export default function Postagem({ post, navigation }) {
   const handlePress = () => {
@@ -11,7 +12,9 @@ export default function Postagem({ post, navigation }) {
       <TouchableOpacity style={styles.button} onPress={handlePress}>
         <Text style={styles.title}>{post.title}</Text>
         <Text style={styles.body}>{post.body}</Text>
+        <TouchableOpacity><FontAwesome5 name="edit" size={24} color="#007BFF" /></TouchableOpacity>
       </TouchableOpacity>
+      
     </View>
   );
 }
@@ -47,5 +50,9 @@ const styles = StyleSheet.create({
     fontSize: 16,
     color: '#333',
     marginBottom: 10,
-  },
+  }, 
+  editButton: {
+    width: 25,
+    height: 25,
+  }
 });
