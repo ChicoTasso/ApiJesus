@@ -1,13 +1,17 @@
 import React, { useState } from 'react';
 import { View, TextInput, Button, StyleSheet, Alert, Text } from 'react-native';
 
-export default function UpdatePost({ navigation }) {
+export default function UpdatePost({ navigation, route }) {
   const [titulo, setTitulo] = useState('');
   const [texto, setTexto] = useState('');
+  const { postId } = route.params;
 
 
+  const RecuperarPost = () => {
+    
+  }
 
-  
+
 
   const UpdatePost = () => {
     if (titulo === '' || texto === '') {
