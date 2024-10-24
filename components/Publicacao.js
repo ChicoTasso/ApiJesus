@@ -1,6 +1,7 @@
 import React from 'react';
 import { Text, View, StyleSheet, TouchableOpacity } from 'react-native';
 import FontAwesome5 from '@expo/vector-icons/FontAwesome5';
+import Ionicons from '@expo/vector-icons/Ionicons';
 
 export default function Postagem({ post, navigation }) {
   const handlePress = () => {
@@ -19,7 +20,10 @@ export default function Postagem({ post, navigation }) {
       <TouchableOpacity style={styles.button} onPress={handlePress}>
         <Text style={styles.title}>{post.title}</Text>
         <Text style={styles.body}>{post.body}</Text>
-        <TouchableOpacity onPress={atualizarPost} ><FontAwesome5 name="edit" size={24} color="#007BFF" /></TouchableOpacity>
+        <View style={styles.buttonGroups}>
+          <TouchableOpacity ><FontAwesome5 name="edit" size={24} color="#007BFF" /></TouchableOpacity>
+          <TouchableOpacity style={styles.icons}><Ionicons name="trash" size={24} color="#007BFF" /></TouchableOpacity>
+        </View>
       </TouchableOpacity>
       
     </View>
@@ -58,8 +62,10 @@ const styles = StyleSheet.create({
     color: '#333',
     marginBottom: 10,
   }, 
-  editButton: {
-    width: 25,
-    height: 25,
+  buttonGroups: {
+    flexDirection: 'row',
+  },
+  icons:{
+    paddingHorizontal: 8,
   }
 });
