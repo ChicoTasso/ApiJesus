@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { View, TextInput, Button, StyleSheet, Alert, Text } from 'react-native';
+import { useNavigation } from '@react-navigation/native'; 
 
 export default function UpdatePost({ navigation, route }) {
   const [titulo, setTitulo] = useState('');
@@ -8,7 +9,7 @@ export default function UpdatePost({ navigation, route }) {
 
 
   const RecuperarPost = () => {
-    
+
   }
 
 

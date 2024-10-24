@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { View, Text, StyleSheet, ScrollView, ActivityIndicator, Button } from 'react-native';
-import { useNavigation } from '@react-navigation/native'; // Importação do hook de navegação
+import { useNavigation } from '@react-navigation/native'; 
 
 export default function PostDetail({ route }) {
   const { postId } = route.params;
