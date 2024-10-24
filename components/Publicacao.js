@@ -2,6 +2,7 @@ import React from 'react';
 import { Text, View, StyleSheet, TouchableOpacity } from 'react-native';
 import FontAwesome5 from '@expo/vector-icons/FontAwesome5';
 import Ionicons from '@expo/vector-icons/Ionicons';
+import apagarPost from '../screens/DeletePost'
 
 export default function Postagem({ post, navigation }) {
   const handlePress = () => {
@@ -13,6 +14,10 @@ export default function Postagem({ post, navigation }) {
     navigation.navigate('UpdatePost', { postId: post.id })
   }
 
+  const apagarPost = () => {
+    navigation.navigate('DeletePost', {postId: post.id })
+  }
+
 
 
   return (
@@ -21,8 +26,8 @@ export default function Postagem({ post, navigation }) {
         <Text style={styles.title}>{post.title}</Text>
         <Text style={styles.body}>{post.body}</Text>
         <View style={styles.buttonGroups}>
-          <TouchableOpacity ><FontAwesome5 name="edit" size={24} color="#007BFF" /></TouchableOpacity>
-          <TouchableOpacity style={styles.icons}><Ionicons name="trash" size={24} color="#007BFF" /></TouchableOpacity>
+          <TouchableOpacity onPress={atualizarPost} ><FontAwesome5 name="edit" size={24} color="#007BFF" /></TouchableOpacity>
+          <TouchableOpacity onPress={apagarPost} style={styles.icons}><Ionicons name="trash" size={24} color="#007BFF" /></TouchableOpacity>
         </View>
       </TouchableOpacity>
       

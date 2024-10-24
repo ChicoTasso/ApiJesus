@@ -10,6 +10,8 @@ import MeusAlbuns from './screens/Galerias';
 import PerfilDoUsuario from './screens/ExibirPerfil';
 import UpdatePost from './screens/UpdatePost';
 import AtualizandoTitulo from './screens/UpdatePartial';
+import apagarPost from './screens/DeletePost';
+
 
 
 const Stack = createNativeStackNavigator();
@@ -25,7 +27,9 @@ export default function App() {
         <Stack.Screen name="Albuns" component={MeusAlbuns}  />
         <Stack.Screen name="PerfilDoUsuario" component={PerfilDoUsuario}  />
         <Stack.Screen name="UpdatePost" component={UpdatePost}  />
-        <Stack.Screen name="Atualizando Título" component={AtualizandoTitulo}  />
+        <Stack.Screen name="Atualizando Título" component={AtualizandoTitulo}
+        <Stack.Screen name="DeletePost" component={apagarPost}  />
+
       </Stack.Navigator>
     </NavigationContainer>
   );
