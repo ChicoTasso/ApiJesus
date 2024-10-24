@@ -11,15 +11,12 @@ export default function UpdatePost({ navigation, route }) {
  useEffect( ()=> {
     const recuperarDados = async () =>  {
       try {
-        setLoading(true);
-        const batata = await fetch(`https://jsonplaceholder.typicode.com/posts/${postId}`)
-        const batataDados = await batata.json();
-        setTitulo(batataDados.title);
-        setTexto(batataDados.body);
+        const data = await fetch(`https://jsonplaceholder.typicode.com/posts/${postId}`)
+        const dataDados = await data.json();
+        setTitulo(dataDados.title);
+        setTexto(dataDados.body);
       } catch (error) {
         console.error('Erro ao buscar post.', error)
-      } finally {
-        setLoading(false);
       }
     }
     recuperarDados();
@@ -27,7 +24,6 @@ export default function UpdatePost({ navigation, route }) {
 
 
   const updatePost = () => {
-    setLoading(true);
     
     fetch(`https://jsonplaceholder.typicode.com/posts/${postId}`, {
       method: 'PUT',
@@ -42,12 +38,10 @@ export default function UpdatePost({ navigation, route }) {
     .then(response => response.json())
     .then(data => {
       alert('Post atualizado com sucesso!');
-      setLoading(false);
-      navigation.navigate('Posts'); 
+    navigation.navigate('Posts');
     })
     .catch(error => {
       console.error(error);
-      setLoading(false);
     });
   };
   
