@@ -19,6 +19,10 @@ export default function Postagem({ post, navigation }) {
   }
 
 
+  const atualizarTitulo = () => {
+    navigation.navigate('AtualizandoTítulo', {postId: post.id })
+  }
+
 
   return (
     <View style={styles.container}>
@@ -27,6 +31,7 @@ export default function Postagem({ post, navigation }) {
         <Text style={styles.body}>{post.body}</Text>
         <View style={styles.buttonGroups}>
           <TouchableOpacity onPress={atualizarPost} ><FontAwesome5 name="edit" size={24} color="#007BFF" /></TouchableOpacity>
+          <TouchableOpacity onPress={atualizarTitulo} ><FontAwesome5 name="edit" size={24} color="#007BFF" /></TouchableOpacity>
           <TouchableOpacity onPress={apagarPost} style={styles.icons}><Ionicons name="trash" size={24} color="#007BFF" /></TouchableOpacity>
         </View>
       </TouchableOpacity>
