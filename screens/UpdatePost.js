@@ -5,7 +5,11 @@ export default function UpdatePost({ navigation }) {
   const [titulo, setTitulo] = useState('');
   const [texto, setTexto] = useState('');
 
-  const publicarPost = () => {
+
+
+  
+
+  const UpdatePost = () => {
     if (titulo === '' || texto === '') {
       Alert.alert('Erro', 'Por favor, preencha todos os campos.');
       return;
@@ -38,7 +42,7 @@ export default function UpdatePost({ navigation }) {
       <View style={styles.buttonContainer}>
         <Button
           title="Publicar"
-          onPress={publicarPost}
+          onPress={UpdatePost}
           color="#000" 
         />
       </View>

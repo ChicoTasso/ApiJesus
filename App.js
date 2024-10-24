@@ -8,6 +8,7 @@ import CriarPost from './screens/NewPost';
 import Usuarios from './screens/Usuarios'
 import MeusAlbuns from './screens/Galerias';
 import PerfilDoUsuario from './screens/ExibirPerfil';
+import UpdatePost from './screens/UpdatePost';
 
 
 const Stack = createNativeStackNavigator();
@@ -22,6 +23,7 @@ export default function App() {
         <Stack.Screen name="Perfis" component={Usuarios}  />
         <Stack.Screen name="Albuns" component={MeusAlbuns}  />
         <Stack.Screen name="PerfilDoUsuario" component={PerfilDoUsuario}  />
+        <Stack.Screen name="UpdatePost" component={UpdatePost}  />
       </Stack.Navigator>
     </NavigationContainer>
   );
