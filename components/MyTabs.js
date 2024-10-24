@@ -3,8 +3,8 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import HomeScreen from '../screens/Home';
 import Usuarios from '../screens/Usuarios';
 import CriarPost from '../screens/NewPost';
-import MeusAlbuns from '../screens/Galerias'; // Ajuste para a pasta correta
-import Icon from 'react-native-vector-icons/Ionicons'; // Certifique-se que o Ionicons está instalado
+import MeusAlbuns from '../screens/Galerias'; 
+import Icon from 'react-native-vector-icons/Ionicons'; 
 
 const Tab = createBottomTabNavigator();
 
@@ -17,8 +17,8 @@ export default function MyTabs() {
           borderTopWidth: 0,
           elevation: 5,
         },
-        tabBarActiveTintColor: '#3b82f6', // Cor para a aba ativa
-        tabBarInactiveTintColor: '#gray', // Cor para as abas inativas
+        tabBarActiveTintColor: '#3b82f6', 
+        tabBarInactiveTintColor: '#gray', 
       }}
     >
       <Tab.Screen
