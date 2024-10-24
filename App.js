@@ -27,7 +27,7 @@ export default function App() {
         <Stack.Screen name="Albuns" component={MeusAlbuns}  />
         <Stack.Screen name="PerfilDoUsuario" component={PerfilDoUsuario}  />
         <Stack.Screen name="UpdatePost" component={UpdatePost}  />
-        <Stack.Screen name="Atualizando Título" component={AtualizandoTitulo}
+        <Stack.Screen name="Atualizando Título" component={AtualizandoTitulo}/>
         <Stack.Screen name="DeletePost" component={apagarPost}  />
 
       </Stack.Navigator>
