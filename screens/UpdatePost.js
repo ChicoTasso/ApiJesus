@@ -31,8 +31,8 @@ export default function UpdatePost({ navigation, route }) {
         'Content-Type': 'application/json'
       },
       body: JSON.stringify({
-        title: title,
-        body: body
+        title: titulo,
+        body: texto
       })
     })
     .then(response => response.json())
