@@ -26,16 +26,33 @@ export default function UpdatePost({ navigation, route }) {
   }, [postId]); 
 
 
-
-  const UpdatePost = () => {
-    if (titulo === '' || texto === '') {
-      Alert.alert('Erro', 'Por favor, preencha todos os campos.');
-      return;
-    }
-    Alert.alert('Sucesso', 'Post publicado com sucesso!');
+  const updatePost = () => {
+    setLoading(true);
     
-    navigation.navigate('Posts');
+    fetch(`https://jsonplaceholder.typicode.com/posts/${postId}`, {
+      method: 'PUT',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        title: title,
+        body: body
+      })
+    })
+    .then(response => response.json())
+    .then(data => {
+      alert('Post atualizado com sucesso!');
+      setLoading(false);
+      navigation.navigate('Posts'); 
+    })
+    .catch(error => {
+      console.error(error);
+      setLoading(false);
+    });
   };
+  
+
+
 
   return (
     <View style={styles.container}>
@@ -60,7 +77,7 @@ export default function UpdatePost({ navigation, route }) {
       <View style={styles.buttonContainer}>
         <Button
           title="Publicar"
-          onPress={UpdatePost}
+          onPress={updatePost}
           color="#000" 
         />
       </View>
